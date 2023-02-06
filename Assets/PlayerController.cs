@@ -22,7 +22,6 @@ public class PlayerController : MonoBehaviour
         movement *= Speed * RunMultiplier;
         movement = new Vector3(movement.x, GetComponent<Rigidbody>().velocity.y, movement.z);
 
-        // transform.Translate(movement);
         movement = transform.TransformDirection(movement);
         GetComponent<Rigidbody>().velocity = movement;
     }
@@ -34,7 +33,16 @@ public class PlayerController : MonoBehaviour
         float mouseY = Input.GetAxis("Mouse Y");
 
         transform.Rotate(0, mouseX, 0);
+
         Camera.main.transform.Rotate(-mouseY, 0, 0);
+        // clamp camera rotation to prevent flipping
+        float cameraRotation = Camera.main.transform.localEulerAngles.x;
+        if (cameraRotation > 180)
+        {
+            cameraRotation -= 360;
+        }
+        cameraRotation = Mathf.Clamp(cameraRotation, -90, 90);
+        Camera.main.transform.localEulerAngles = new Vector3(cameraRotation, 0, 0);
     }
     void Start()
     {
