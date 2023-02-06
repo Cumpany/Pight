@@ -15,11 +15,16 @@ public class PlayerController : MonoBehaviour
         {
             RunMultiplier = 2f;
         }
-        float horizontal = Input.GetAxis("Horizontal") * Speed * RunMultiplier;
-        float vertical = Input.GetAxis("Vertical") * Speed * RunMultiplier;
-        Vector3 movement = new Vector3(horizontal, 0, vertical);
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+        Vector3 movement = new Vector3(horizontal, 0, vertical).magnitude > 1
+        ? new Vector3(horizontal, 0, vertical).normalized : new Vector3(horizontal, 0, vertical);
+        movement *= Speed * RunMultiplier;
+        movement = new Vector3(movement.x, GetComponent<Rigidbody>().velocity.y, movement.z);
 
-        transform.Translate(movement);
+        // transform.Translate(movement);
+        movement = transform.TransformDirection(movement);
+        GetComponent<Rigidbody>().velocity = movement;
     }
     void Update()
     {
