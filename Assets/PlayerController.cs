@@ -10,8 +10,13 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         // normal movement
-        float horizontal = Input.GetAxis("Horizontal") * Speed;
-        float vertical = Input.GetAxis("Vertical") * Speed;
+        float RunMultiplier = 1f;
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            RunMultiplier = 2f;
+        }
+        float horizontal = Input.GetAxis("Horizontal") * Speed * RunMultiplier;
+        float vertical = Input.GetAxis("Vertical") * Speed * RunMultiplier;
         Vector3 movement = new Vector3(horizontal, 0, vertical);
 
         transform.Translate(movement);
