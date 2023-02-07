@@ -5,17 +5,10 @@ using UnityEngine;
 public class FlashlightScript : MonoBehaviour
 {
     public GameObject Spotlight;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
+    public int MouseButton = 0;
     void Update()
     {
-        //if left mouse button is clicked toggle spotlight on and off
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(MouseButton))
         {
             Spotlight.SetActive(!Spotlight.activeSelf);
         }
