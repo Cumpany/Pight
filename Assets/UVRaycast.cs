@@ -14,11 +14,15 @@ public class UVRaycast : MonoBehaviour
     void Start()
     {
         float angle = gameObject.GetComponent<Light>().spotAngle;
-        float radius = gameObject.GetComponent<Light>().range;
-        float step = 1f;
-        for (float i = -angle / 2; i < angle / 2; i += step)
+        // generate cone of raycast directions based on spotlight angle
+        for (int j = 0; j < 5; j++)
         {
-            RayCastDirections.Add(new Vector3(Mathf.Sin(i * Mathf.Deg2Rad), 0, Mathf.Cos(i * Mathf.Deg2Rad)).normalized);
+            for (int i = 0; i < 360; i += 5)
+            {
+                float x = Mathf.Sin(i * Mathf.Deg2Rad) * (angle / (180 * j));
+                float y = Mathf.Cos(i * Mathf.Deg2Rad) * (angle / (180 * j));
+                RayCastDirections.Add(new Vector3(x, y, 0));
+            }
         }
     }
     void Update()
@@ -28,11 +32,10 @@ public class UVRaycast : MonoBehaviour
         //draw raycast in scene view
         foreach (var direction in RayCastDirections)
         {
-            Debug.DrawRay(transform.position, (transform.forward + direction)*100, Color.red);
-
-            if (Physics.Raycast(transform.position, transform.forward + direction, out hit, 100))
+            Debug.DrawRay(transform.position, (transform.forward + transform.TransformDirection(direction)) * 100, Color.red);
+            if (Physics.Raycast(transform.position, transform.forward + transform.TransformDirection(direction), out hit, 100))
             {
-                
+
                 //Debug.Log("hit");
                 //Debug.Log(hit.transform.gameObject.name);
                 //Debug.Log(hit.transform.gameObject.tag);
@@ -52,5 +55,41 @@ public class UVRaycast : MonoBehaviour
                 obj.Key.GetComponent<Renderer>().material = InvisMat;
             }
         }
+    }
+    void OnDisable()
+    {
+        foreach (var obj in Objects)
+        {
+            obj.Key.GetComponent<Renderer>().material = InvisMat;
+        }
+    }
+}
+public static class ConeCastExtension
+{
+    public static RaycastHit[] ConeCastAll(Physics physics, Vector3 origin, float maxRadius, Vector3 direction, float maxDistance, float coneAngle)
+    {
+        RaycastHit[] sphereCastHits = Physics.SphereCastAll(origin - new Vector3(0, 0, maxRadius), maxRadius, direction, maxDistance);
+        List<RaycastHit> coneCastHitList = new List<RaycastHit>();
+
+        if (sphereCastHits.Length > 0)
+        {
+            for (int i = 0; i < sphereCastHits.Length; i++)
+            {
+                sphereCastHits[i].collider.gameObject.GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f);
+                Vector3 hitPoint = sphereCastHits[i].point;
+                Vector3 directionToHit = hitPoint - origin;
+                float angleToHit = Vector3.Angle(direction, directionToHit);
+
+                if (angleToHit < coneAngle)
+                {
+                    coneCastHitList.Add(sphereCastHits[i]);
+                }
+            }
+        }
+
+        RaycastHit[] coneCastHits = new RaycastHit[coneCastHitList.Count];
+        coneCastHits = coneCastHitList.ToArray();
+
+        return coneCastHits;
     }
 }
