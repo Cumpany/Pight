@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - UV Light
+  - UV
   layers:
   - Default
   - TransparentFX
@@ -12,7 +13,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Light1
   - 
   - 
   - 
