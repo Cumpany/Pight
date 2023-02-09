@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 262.3369, g: 325.0498, b: 430.21924, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1029,25 +1029,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 308487731133248716, guid: 15535b02ddb39b0479bc412c0e696db6, type: 3}
   m_PrefabInstance: {fileID: 395219288}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &456889150 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3748218179865619992, guid: c530fa9936a03bb40a7a8fd3df26ab4d, type: 3}
-  m_PrefabInstance: {fileID: 816143001}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &456889154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 456889150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f70f2bf8b4a017f4a8fc9cbd63b23fcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UvMat: {fileID: 2100000, guid: 58805289a1653be4aba481612d9e6cdf, type: 2}
-  InvisMat: {fileID: 2100000, guid: 4c14efc39d2748c47a46fd4440354c60, type: 2}
 --- !u!1001 &793329312
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1176,21 +1157,25 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3748218179865619992, guid: c530fa9936a03bb40a7a8fd3df26ab4d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7159287585146185842, guid: c530fa9936a03bb40a7a8fd3df26ab4d, type: 3}
       propertyPath: m_Intensity
-      value: 2989.4814
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 7159287585146185842, guid: c530fa9936a03bb40a7a8fd3df26ab4d, type: 3}
       propertyPath: m_LightlayersMask
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 7499638266973331376, guid: c530fa9936a03bb40a7a8fd3df26ab4d, type: 3}
-      propertyPath: m_Intensity
-      value: 5078.23
+    - target: {fileID: 7159287585146185842, guid: c530fa9936a03bb40a7a8fd3df26ab4d, type: 3}
+      propertyPath: m_CustomSpotLightShadowCone
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7499638266973331376, guid: c530fa9936a03bb40a7a8fd3df26ab4d, type: 3}
-      propertyPath: m_RenderingLayerMask
-      value: 3
+      propertyPath: m_Intensity
+      value: 5096.0977
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c530fa9936a03bb40a7a8fd3df26ab4d, type: 3}

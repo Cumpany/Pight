@@ -15,15 +15,42 @@ public class UVRaycast : MonoBehaviour
     {
         float angle = gameObject.GetComponent<Light>().spotAngle;
         // generate cone of raycast directions based on spotlight angle
-        for (int j = 0; j < 5; j++)
+        // for (int j = 0; j < 5; j++)
+        // {
+        //     for (int i = 0; i < 360; i += 5)
+        //     {
+        //         float x = Mathf.Sin(i * Mathf.Deg2Rad) * (angle / (180 * j));
+        //         float y = Mathf.Cos(i * Mathf.Deg2Rad) * (angle / (180 * j));
+        //         RayCastDirections.Add(new Vector3(x, y, 0));
+        //     }
+        // }
+        // RayCastDirections = GenerateCastDirections(angle);
+        bool offset = false;
+        for (float i = 0; i < angle; i += 5)
         {
-            for (int i = 0; i < 360; i += 5)
-            {
-                float x = Mathf.Sin(i * Mathf.Deg2Rad) * (angle / (180 * j));
-                float y = Mathf.Cos(i * Mathf.Deg2Rad) * (angle / (180 * j));
-                RayCastDirections.Add(new Vector3(x, y, 0));
-            }
+            RayCastDirections.AddRange(GenerateCastDirections(i, offset));
+            offset = !offset;
         }
+    }
+    private List<Vector3> GenerateCastDirections(float angle, bool offset = false)
+    {
+        // List<Vector3> directions = new List<Vector3>();
+        // for (int i = 0; i < 360; i += 5)
+        // {
+        //     float x = Mathf.Sin(i * Mathf.Deg2Rad) * (angle / 180);
+        //     float y = Mathf.Cos(i * Mathf.Deg2Rad) * (angle / 180);
+        //     directions.Add(new Vector3(x, y, 0));
+        // }
+        // return directions;
+        List<Vector3> directions = new List<Vector3>();
+        float offsetAngle = offset ? 0.5f * Mathf.Deg2Rad : 0;
+        for (int i = 0; i < 360; i += 5)
+        {
+            float x = Mathf.Sin(i * Mathf.Deg2Rad + offsetAngle) * (angle / 180);
+            float y = Mathf.Cos(i * Mathf.Deg2Rad + offsetAngle) * (angle / 180);
+            directions.Add(new Vector3(x, y, 0));
+        }
+        return directions;
     }
     void Update()
     {
@@ -32,8 +59,8 @@ public class UVRaycast : MonoBehaviour
         //draw raycast in scene view
         foreach (var direction in RayCastDirections)
         {
-            Debug.DrawRay(transform.position, (transform.forward + transform.TransformDirection(direction)) * 100, Color.red);
-            if (Physics.Raycast(transform.position, transform.forward + transform.TransformDirection(direction), out hit, 100))
+            Debug.DrawRay(transform.position, (transform.forward + transform.TransformDirection(direction)) * 50, Color.red);
+            if (Physics.Raycast(transform.position, transform.forward + transform.TransformDirection(direction), out hit, 50))
             {
 
                 //Debug.Log("hit");
