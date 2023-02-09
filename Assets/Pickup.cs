@@ -22,8 +22,9 @@ public class Pickup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, Player.transform.position) < 1 && !PickedUp)
+        if (Vector3.Distance(transform.position, Player.transform.position) < 2 && !PickedUp)
         {
+            Prompt.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
                 if (Tag == "Key")

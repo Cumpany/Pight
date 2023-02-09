@@ -12,8 +12,6 @@ public class LockerScript : MonoBehaviour
     GameObject FailPrompt;
 
     bool Opened = false;
-
-    int Delay = 2;
     // Start is called before the first frame update
     void Start()
     {
