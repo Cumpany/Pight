@@ -8,10 +8,12 @@ public class LockerScript : MonoBehaviour
     
     Animator anim;
 
-    GameObject Prompt;
-    GameObject FailPrompt;
+    public GameObject Prompt;
+    public GameObject FailPrompt;
 
     bool Opened = false;
+
+    bool bög = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +24,17 @@ public class LockerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, Player.transform.position) < 1 && !Opened)
-        {
-            Prompt.SetActive(true);
+        if (Vector3.Distance(transform.position, Player.transform.position) < 2 && !Opened)
+        { 
+            if (bög)
+            {
+                Prompt.SetActive(false);
+            }
+            else
+            {
+                Prompt.SetActive(true);
+            }
+            
             if (Input.GetKeyDown(KeyCode.E))
             {
                 if (Player.GetComponent<PlayerController>().HasKey)
@@ -36,9 +46,25 @@ public class LockerScript : MonoBehaviour
 
                 if (!Player.GetComponent<PlayerController>().HasKey)
                 {
-                    
+                    //show fail prompt for 2 seconds
+                    FailPrompt.SetActive(true);
+                    StartCoroutine(FailPromptTimer());
+
                 }
             }
+            bög = false;
         }
+        else
+        {
+            Prompt.SetActive(false);
+        }
+    }
+
+
+
+    IEnumerator FailPromptTimer()
+    {
+        yield return new WaitForSeconds(2);
+        FailPrompt.SetActive(false);
     }
 }

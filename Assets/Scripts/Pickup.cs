@@ -29,10 +29,15 @@ public class Pickup : MonoBehaviour
             {
                 if (Tag == "Key")
                 {
+                    Prompt.SetActive(false);
                     Player.GetComponent<PlayerController>().HasKey = true;
                     Destroy(gameObject);
                 }
             }
+        }
+        else
+        {
+            Prompt.SetActive(false);
         }
     }
 }

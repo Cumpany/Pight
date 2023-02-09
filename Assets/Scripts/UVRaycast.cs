@@ -69,7 +69,7 @@ public class UVRaycast : MonoBehaviour
                 if (hit.transform.gameObject.tag == "UV")
                 {
                     //Debug.Log("UV");
-                    hit.transform.gameObject.GetComponent<Renderer>().material = UvMat;
+                    hit.transform.gameObject.GetComponent<SpriteRenderer>().material = UvMat;
                     Objects[hit.transform.gameObject] = 0.1f;
                 }
             }
