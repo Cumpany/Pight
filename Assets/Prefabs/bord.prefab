@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9167335149447554308}
   - component: {fileID: 5230703549373557409}
   - component: {fileID: 8030980692321623659}
+  - component: {fileID: 4734964008957904582}
   m_Layer: 0
   m_Name: bord
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4734964008957904582
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8391114388118339518}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8411082864781485406, guid: 69037337a4c66ec4fa5fc79e097ce7a9, type: 3}

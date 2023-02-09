@@ -6,6 +6,7 @@ TagManager:
   tags:
   - UV Light
   - UV
+  - Key
   layers:
   - Default
   - TransparentFX
