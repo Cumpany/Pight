@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.33371285, g: 0.49977273, b: 0.8330078, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2744,6 +2744,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 580141307852064711, guid: c530fa9936a03bb40a7a8fd3df26ab4d, type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 580141308451663125, guid: c530fa9936a03bb40a7a8fd3df26ab4d, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2794,11 +2798,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 580141309049843978, guid: c530fa9936a03bb40a7a8fd3df26ab4d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 580141309049844084, guid: c530fa9936a03bb40a7a8fd3df26ab4d, type: 3}
+      propertyPath: m_Intensity
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 580141309049844084, guid: c530fa9936a03bb40a7a8fd3df26ab4d, type: 3}
+      propertyPath: m_CustomSpotLightShadowCone
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 580141309049844085, guid: c530fa9936a03bb40a7a8fd3df26ab4d, type: 3}
+      propertyPath: m_Intensity
+      value: 891.09424
+      objectReference: {fileID: 0}
+    - target: {fileID: 580141309049844085, guid: c530fa9936a03bb40a7a8fd3df26ab4d, type: 3}
+      propertyPath: m_SpotAngle
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 580141309049844085, guid: c530fa9936a03bb40a7a8fd3df26ab4d, type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 580141309049844085, guid: c530fa9936a03bb40a7a8fd3df26ab4d, type: 3}
+      propertyPath: m_ColorTemperature
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 3748218179865619992, guid: c530fa9936a03bb40a7a8fd3df26ab4d, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7159287585146185842, guid: c530fa9936a03bb40a7a8fd3df26ab4d, type: 3}
+      propertyPath: m_Intensity
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7499638266973331376, guid: c530fa9936a03bb40a7a8fd3df26ab4d, type: 3}
+      propertyPath: m_Intensity
+      value: 3397.3984
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c530fa9936a03bb40a7a8fd3df26ab4d, type: 3}
