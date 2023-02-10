@@ -7,7 +7,7 @@ public class UVRaycast : MonoBehaviour
     public Material UvMat;
     public Material InvisMat;
 
-    private Dictionary<GameObject, float> Objects = new Dictionary<GameObject, float>();
+    private List<GameObject> Objects = new List<GameObject>();
 
     private List<Vector3> RayCastDirections = new();
 
@@ -54,32 +54,23 @@ public class UVRaycast : MonoBehaviour
     }
     void Update()
     {
-        //raycast from uv light position
-        RaycastHit hit;
-        //draw raycast in scene view
-        foreach (var direction in RayCastDirections)
-        {
-            Debug.DrawRay(transform.position, (transform.forward + transform.TransformDirection(direction)) * 50, Color.red);
-            if (Physics.Raycast(transform.position, transform.forward + transform.TransformDirection(direction), out hit, 50))
-            {
-
-                //Debug.Log("hit");
-                //Debug.Log(hit.transform.gameObject.name);
-                //Debug.Log(hit.transform.gameObject.tag);
-                if (hit.transform.gameObject.tag == "UV")
-                {
-                    //Debug.Log("UV");
-                    hit.transform.gameObject.GetComponent<SpriteRenderer>().material = UvMat;
-                    Objects[hit.transform.gameObject] = 0.1f;
-                }
-            }
-        }
         foreach (var obj in Objects)
         {
-            Objects[obj.Key] = Objects[obj.Key] - Time.deltaTime;
-            if (obj.Value <= 0)
+            obj.GetComponent<Renderer>().material = InvisMat;
+        }
+        Objects.Clear();
+        RaycastHit hit;
+        foreach (var direction in RayCastDirections)
+        {
+            Debug.DrawRay(transform.position, (transform.forward + transform.TransformDirection(direction)) * 25, Color.red);
+            if (Physics.Raycast(transform.position, transform.forward + transform.TransformDirection(direction), out hit, 25))
             {
-                obj.Key.GetComponent<Renderer>().material = InvisMat;
+
+                if (hit.transform.gameObject.tag == "UV")
+                {
+                    hit.transform.gameObject.GetComponent<SpriteRenderer>().material = UvMat;
+                    Objects.Add(hit.transform.gameObject);
+                }
             }
         }
     }
@@ -87,8 +78,9 @@ public class UVRaycast : MonoBehaviour
     {
         foreach (var obj in Objects)
         {
-            obj.Key.GetComponent<Renderer>().material = InvisMat;
+            obj.GetComponent<Renderer>().material = InvisMat;
         }
+        Objects.Clear();
     }
 }
 public static class ConeCastExtension

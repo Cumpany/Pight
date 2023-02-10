@@ -5,7 +5,7 @@ using UnityEngine;
 public class LockerScript : MonoBehaviour
 {
     GameObject Player;
-    
+
     Animator anim;
 
     public GameObject Prompt;
@@ -13,7 +13,7 @@ public class LockerScript : MonoBehaviour
 
     bool Opened = false;
 
-    bool bög = false;
+    bool bog = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,8 +25,8 @@ public class LockerScript : MonoBehaviour
     void Update()
     {
         if (Vector3.Distance(transform.position, Player.transform.position) < 2 && !Opened)
-        { 
-            if (bög)
+        {
+            if (bog)
             {
                 Prompt.SetActive(false);
             }
@@ -34,7 +34,7 @@ public class LockerScript : MonoBehaviour
             {
                 Prompt.SetActive(true);
             }
-            
+
             if (Input.GetKeyDown(KeyCode.E))
             {
                 if (Player.GetComponent<PlayerController>().HasKey)
@@ -52,7 +52,7 @@ public class LockerScript : MonoBehaviour
 
                 }
             }
-            bög = false;
+            bog = false;
         }
         else
         {
