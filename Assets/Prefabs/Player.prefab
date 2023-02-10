@@ -445,7 +445,7 @@ GameObject:
   - component: {fileID: 580141308451663145}
   - component: {fileID: 580141308451663144}
   - component: {fileID: 2564384074004420578}
-  - component: {fileID: 4452743441678252681}
+  - component: {fileID: 5706746097698713276}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -563,6 +563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HasKey: 0
+  HasUvFlashlight: 0
   Speed: 5
   JumpForce: 5
   JumpRaycastDistance: 1.1
@@ -580,7 +581,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Spotlight: {fileID: 580141309049843978}
   MouseButton: 0
---- !u!114 &4452743441678252681
+--- !u!114 &5706746097698713276
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -589,7 +590,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 580141308451663151}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08942a2f246a5bb4d83cadf132334852, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e5e48341c7fb5c49b0fdc255ce6e13a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Spotlight: {fileID: 3748218179865619992}
@@ -857,7 +858,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.6093364, g: 0, b: 1, a: 1}
-  m_Intensity: 5096.0977
+  m_Intensity: 311.86688
   m_Range: 50
   m_SpotAngle: 50
   m_InnerSpotAngle: 5
@@ -919,7 +920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 3000
+  m_Intensity: 183.59158
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
