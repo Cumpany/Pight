@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]public bool HasKey = false;
+
     public float Speed = 1f;
     public float JumpForce = 5f;
     public float JumpRaycastDistance = 1.1f;
