@@ -7,6 +7,8 @@ public class UvFlashlightScript : MonoBehaviour
     public GameObject Spotlight;
     public int MouseButton = 0;
 
+    public GameObject Light;
+
     GameObject Player;
 
     private void Start()
@@ -18,6 +20,7 @@ public class UvFlashlightScript : MonoBehaviour
         if (Input.GetMouseButtonDown(MouseButton) && Player.GetComponent<PlayerController>().HasUvFlashlight)
         {
             Spotlight.SetActive(!Spotlight.activeSelf);
+            Light.SetActive(false);
         }
     }
 }
