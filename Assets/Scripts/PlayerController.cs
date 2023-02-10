@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]public bool HasKey = false;
+    [SerializeField]public bool HasUvFlashlight = false;
 
     public float Speed = 1f;
     public float JumpForce = 5f;

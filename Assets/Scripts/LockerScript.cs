@@ -11,7 +11,8 @@ public class LockerScript : MonoBehaviour
     public GameObject Prompt;
     public GameObject FailPrompt;
 
-    bool Opened = false;
+    [SerializeField]
+    public bool Opened = false;
 
     bool bog = false;
     // Start is called before the first frame update
@@ -26,14 +27,6 @@ public class LockerScript : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, Player.transform.position) < 2 && !Opened)
         {
-            if (bog)
-            {
-                Prompt.SetActive(false);
-            }
-            else
-            {
-                Prompt.SetActive(true);
-            }
 
             if (Input.GetKeyDown(KeyCode.E))
             {

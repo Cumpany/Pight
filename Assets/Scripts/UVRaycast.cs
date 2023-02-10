@@ -62,8 +62,8 @@ public class UVRaycast : MonoBehaviour
         RaycastHit hit;
         foreach (var direction in RayCastDirections)
         {
-            Debug.DrawRay(transform.position, (transform.forward + transform.TransformDirection(direction)) * 25, Color.red);
-            if (Physics.Raycast(transform.position, transform.forward + transform.TransformDirection(direction), out hit, 25))
+            Debug.DrawRay(transform.position, (transform.forward + transform.TransformDirection(direction)) * 7, Color.red);
+            if (Physics.Raycast(transform.position, transform.forward + transform.TransformDirection(direction), out hit, 7))
             {
 
                 if (hit.transform.gameObject.tag == "UV")
