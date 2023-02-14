@@ -10,6 +10,11 @@ public class PlayerController : MonoBehaviour
     public float Speed = 1f;
     public float JumpForce = 5f;
     public float JumpRaycastDistance = 1.1f;
+
+    float mouseX;
+    float mouseY;
+
+    public bool canMove = true;
     void FixedUpdate()
     {
         // normal movement
@@ -25,15 +30,25 @@ public class PlayerController : MonoBehaviour
         movement *= Speed * RunMultiplier;
         movement = new Vector3(movement.x, GetComponent<Rigidbody>().velocity.y, movement.z);
 
-        movement = transform.TransformDirection(movement);
-        GetComponent<Rigidbody>().velocity = movement;
+        if (canMove)
+        {
+            movement = transform.TransformDirection(movement);
+            GetComponent<Rigidbody>().velocity = movement;
+        }
+
+        //movement = transform.TransformDirection(movement);
+        //GetComponent<Rigidbody>().velocity = movement;
     }
     void Update()
     {
-
+        if (canMove)
+        {
+            mouseX = Input.GetAxis("Mouse X");
+            mouseY = Input.GetAxis("Mouse Y");
+        }
         // camera movement
-        float mouseX = Input.GetAxis("Mouse X");
-        float mouseY = Input.GetAxis("Mouse Y");
+        //float mouseX = Input.GetAxis("Mouse X");
+        //float mouseY = Input.GetAxis("Mouse Y");
 
         transform.Rotate(0, mouseX, 0);
 

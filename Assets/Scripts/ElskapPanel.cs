@@ -20,10 +20,12 @@ public class ElskapPanel : MonoBehaviour
     public bool Red = false;
 
     public GameObject Skap;
+
+    GameObject Player;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -33,6 +35,11 @@ public class ElskapPanel : MonoBehaviour
         {
             Skap.GetComponent<ElskapScript>().Done();
             gameObject.SetActive(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ResetWires();
         }
     }
 
@@ -101,6 +108,8 @@ public class ElskapPanel : MonoBehaviour
         RedKlippt.SetActive(false);
 
         gameObject.SetActive(false);
+
+        Player.GetComponent<PlayerController>().canMove = true;
 
         Cursor.lockState = CursorLockMode.Locked;
     }

@@ -32,6 +32,7 @@ public class ElskapScript : MonoBehaviour
             {
                 anim.SetBool("Open", true);
                 Canvas.SetActive(true);
+                Player.GetComponent<PlayerController>().canMove = false;
                 Cursor.lockState = CursorLockMode.None;
             }
             else
@@ -54,6 +55,7 @@ public class ElskapScript : MonoBehaviour
     {
         Canvas.SetActive(false);
         anim2.SetBool("Remove", true);
+        Player.GetComponent<PlayerController>().canMove = true;
         Cursor.lockState = CursorLockMode.Locked;
     }
 }
