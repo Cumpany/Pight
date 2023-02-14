@@ -17,8 +17,6 @@ public class ElskapScript : MonoBehaviour
     public GameObject Canvas;
 
     public GameObject FailPrompt;
-
-    //bool Opened = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +30,6 @@ public class ElskapScript : MonoBehaviour
         {
             if (!Light1.activeSelf && !Light2.activeSelf && !Light3.activeSelf)
             {
-                //Opened = true;
                 anim.SetBool("Open", true);
                 Canvas.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;

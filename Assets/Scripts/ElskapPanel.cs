@@ -32,6 +32,7 @@ public class ElskapPanel : MonoBehaviour
         if (Blue == BlueKlippt.activeSelf && Green == GreenKlippt.activeSelf && Yellow == YellowKlippt.activeSelf && Red == RedKlippt.activeSelf)
         {
             Skap.GetComponent<ElskapScript>().Done();
+            gameObject.SetActive(false);
         }
     }
 
