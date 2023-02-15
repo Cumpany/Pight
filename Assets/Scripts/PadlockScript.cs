@@ -15,6 +15,10 @@ public class PadlockScript : MonoBehaviour
     public GameObject Num2;
     public GameObject Num3;
     public GameObject Num4;
+    int Num1Int;
+    int Num2Int;
+    int Num3Int;
+    int Num4Int;
 
     public int Code1;
     public int Code2;
@@ -28,6 +32,11 @@ public class PadlockScript : MonoBehaviour
         Player = GameObject.Find("Player");
         Canvas.SetActive(false);
         Prompt.SetActive(false);
+        //convert string to int
+        Num1Int = int.Parse(Num1.GetComponent<LockButton>().text.text);
+        Num2Int = int.Parse(Num2.GetComponent<LockButton>().text.text);
+        Num3Int = int.Parse(Num3.GetComponent<LockButton>().text.text);
+        Num4Int = int.Parse(Num4.GetComponent<LockButton>().text.text);
     }
 
     // Update is called once per frame
@@ -62,7 +71,7 @@ public class PadlockScript : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
         }
 
-        if (Num1.GetComponent<LockButton>().text.text == Code1.ToString() && Num2.GetComponent<LockButton>().text.text == Code2.ToString() && Num3.GetComponent<LockButton>().text.text == Code3.ToString() && Num4.GetComponent<LockButton>().text.text == Code4.ToString())
+        if (Num1Int == Code1 && Num2Int == Code2 && Num3Int == Code3 && Num4Int == Code4)
         {
             Opened = true;
             anim.SetBool("DoorOpen", true);
