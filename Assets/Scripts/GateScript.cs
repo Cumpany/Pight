@@ -16,7 +16,7 @@ public class GateScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(Player.transform.position, transform.position) < 10)
+        if (Vector3.Distance(Player.transform.position, transform.position) < 9)
         {
             anim.SetBool("Open", true);
         }

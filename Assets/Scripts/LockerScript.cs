@@ -14,7 +14,6 @@ public class LockerScript : MonoBehaviour
     [SerializeField]
     public bool Opened = false;
 
-    bool bog = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +26,7 @@ public class LockerScript : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, Player.transform.position) < 2 && !Opened)
         {
-
+            Prompt.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
                 if (Player.GetComponent<PlayerController>().HasKey)
@@ -45,7 +44,6 @@ public class LockerScript : MonoBehaviour
 
                 }
             }
-            bog = false;
         }
         else
         {
