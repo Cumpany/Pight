@@ -41,6 +41,15 @@ public class ElskapPanel : MonoBehaviour
         {
             ResetWires();
         }
+
+        if (gameObject.activeSelf)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 
     public void BlueClicked()

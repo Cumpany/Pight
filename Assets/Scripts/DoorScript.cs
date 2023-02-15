@@ -11,6 +11,8 @@ public class DoorScript : MonoBehaviour
     GameObject Player;
 
     bool Opened = false;
+
+    public bool Animation2;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,14 +24,23 @@ public class DoorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(Player.transform.position, transform.position) < 2 && !Opened)
+        if (Vector3.Distance(Player.transform.position, transform.position) < 2.5 && !Opened)
         {
+            Debug.Log("close");
             Canvas.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
-                anim.SetBool("DoorOpen", true);
                 Canvas.SetActive(false);
                 Opened = true;
+
+                if (Animation2)
+                {
+                    anim.SetBool("DoorOpen2", true);
+                }
+                else
+                {
+                    anim.SetBool("DoorOpen", true);
+                }
             }
         }
         else
