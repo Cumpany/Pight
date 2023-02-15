@@ -32,21 +32,22 @@ public class PadlockScript : MonoBehaviour
         Player = GameObject.Find("Player");
         Canvas.SetActive(false);
         Prompt.SetActive(false);
-        //convert string to int
-        Num1Int = int.Parse(Num1.GetComponent<LockButton>().text.text);
-        Num2Int = int.Parse(Num2.GetComponent<LockButton>().text.text);
-        Num3Int = int.Parse(Num3.GetComponent<LockButton>().text.text);
-        Num4Int = int.Parse(Num4.GetComponent<LockButton>().text.text);
     }
 
     // Update is called once per frame
     void Update()
     {
+        //convert string to int
+        Num1Int = int.Parse(Num1.GetComponent<LockButton>().text.text);
+        Num2Int = int.Parse(Num2.GetComponent<LockButton>().text.text);
+        Num3Int = int.Parse(Num3.GetComponent<LockButton>().text.text);
+        Num4Int = int.Parse(Num4.GetComponent<LockButton>().text.text);
         //Debug.Log(Vector3.Distance(Player.transform.position, transform.position));
         if (Vector3.Distance(Player.transform.position, transform.position) < 2 && !Opened)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                Player.GetComponent<PlayerController>().canMove = false;
                 Canvas.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
             }
@@ -67,6 +68,7 @@ public class PadlockScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            Player.GetComponent<PlayerController>().canMove = true;
             Canvas.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
         }
@@ -76,6 +78,7 @@ public class PadlockScript : MonoBehaviour
             Opened = true;
             anim.SetBool("DoorOpen", true);
             Canvas.SetActive(false);
+            Player.GetComponent<PlayerController>().canMove = true;
             Cursor.lockState = CursorLockMode.Locked;
         }
     }
