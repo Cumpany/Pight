@@ -28,7 +28,6 @@ public class DoorScript : MonoBehaviour
     {
         if (Vector3.Distance(Player.transform.position, transform.position) < Distance && !Opened)
         {
-            Debug.Log("close");
             Canvas.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {

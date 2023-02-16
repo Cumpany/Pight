@@ -70,15 +70,31 @@ public class PadlockScript : MonoBehaviour
         {
             Player.GetComponent<PlayerController>().canMove = true;
             Canvas.SetActive(false);
+            Debug.Log("Locked");
             Cursor.lockState = CursorLockMode.Locked;
         }
 
+        //if (Num1Int == Code1 && Num2Int == Code2 && Num3Int == Code3 && Num4Int == Code4)
+        //{
+        //    Opened = true;
+        //    anim.SetBool("DoorOpen", true);
+        //    Canvas.SetActive(false);
+        //    Player.GetComponent<PlayerController>().canMove = true;
+        //    Debug.Log("Locked");
+        //    Cursor.lockState = CursorLockMode.Locked;
+            
+        //}
+    }
+
+    public void Check()
+    {
         if (Num1Int == Code1 && Num2Int == Code2 && Num3Int == Code3 && Num4Int == Code4)
         {
             Opened = true;
             anim.SetBool("DoorOpen", true);
             Canvas.SetActive(false);
             Player.GetComponent<PlayerController>().canMove = true;
+            Debug.Log("Locked");
             Cursor.lockState = CursorLockMode.Locked;
         }
     }
