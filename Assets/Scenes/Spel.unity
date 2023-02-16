@@ -1446,11 +1446,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9009857571301783586, guid: 8aacf59d0a0b05b408d8947dc1b2ec0a, type: 3}
   m_PrefabInstance: {fileID: 93540237}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &98593599 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6722609427238025412, guid: 8aacf59d0a0b05b408d8947dc1b2ec0a, type: 3}
-  m_PrefabInstance: {fileID: 1531081511}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &98681437
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1562,10 +1557,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8825749f6aa4c4bb2cb8071414a1c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Light: {fileID: 1666281760}
-  Bulb: {fileID: 1544731769}
-  DecoyBulb: {fileID: 324540865}
-  isOn: 0
 --- !u!1 &112249087
 GameObject:
   m_ObjectHideFlags: 0
@@ -5693,11 +5684,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!1 &572008474 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6722609427238025412, guid: 8aacf59d0a0b05b408d8947dc1b2ec0a, type: 3}
-  m_PrefabInstance: {fileID: 93540237}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &576067119
 GameObject:
   m_ObjectHideFlags: 0
@@ -7773,10 +7759,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8825749f6aa4c4bb2cb8071414a1c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Light: {fileID: 393867231}
-  Bulb: {fileID: 572008474}
-  DecoyBulb: {fileID: 32977368}
-  isOn: 0
 --- !u!1001 &666712805
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12282,7 +12264,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 580141308451663125, guid: c530fa9936a03bb40a7a8fd3df26ab4d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.1
+      value: 45.8
       objectReference: {fileID: 0}
     - target: {fileID: 580141308451663125, guid: c530fa9936a03bb40a7a8fd3df26ab4d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12290,7 +12272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 580141308451663125, guid: c530fa9936a03bb40a7a8fd3df26ab4d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.7
+      value: -45.2
       objectReference: {fileID: 0}
     - target: {fileID: 580141308451663125, guid: c530fa9936a03bb40a7a8fd3df26ab4d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15877,10 +15859,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8825749f6aa4c4bb2cb8071414a1c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Light: {fileID: 553076890}
-  Bulb: {fileID: 98593599}
-  DecoyBulb: {fileID: 1025307043}
-  isOn: 0
 --- !u!1001 &1534134598
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16044,11 +16022,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 841dbafe398ced4458db92c9ca357aae, type: 3}
---- !u!1 &1544731769 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6722609427238025412, guid: 8aacf59d0a0b05b408d8947dc1b2ec0a, type: 3}
-  m_PrefabInstance: {fileID: 98681437}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1549390541 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1115068286372963805, guid: 6eb9ac41c8a34b347a1da952f236292f, type: 3}
