@@ -17,7 +17,6 @@ public class LeverRaycast : MonoBehaviour
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 3, Color.red);
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 3))
         {
-            Debug.Log(hit.collider.gameObject.tag);
             if (hit.collider.gameObject.tag == "Lever")
             {
                 Debug.Log("Hit Lever");
