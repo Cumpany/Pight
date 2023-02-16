@@ -12,6 +12,8 @@ public class LeverScript : MonoBehaviour
 
     GameObject Parent;
 
+    public GameObject Prompt;
+
     BoxCollider BoxCollider;
 
     bool InRange = false;
@@ -26,20 +28,47 @@ public class LeverScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Physics.ComputePenetration(BoxCollider, BoxCollider.transform.position, BoxCollider.transform.rotation, Player.GetComponent<CapsuleCollider>, Player.GetComponent<CapsuleCollider>().transform.position, Player.GetComponent<CapsuleCollider>().transform.rotation, )
-        //if(Parent.name == "Lever")
-        //{
-        //    Debug.Log(Vector3.Distance(Player.transform.position, transform.position) + Parent.name);
-        //}
-        if (Input.GetKeyDown(KeyCode.E) && InRange)
+        if (Vector3.Distance(Player.transform.position, transform.position) > 3.5f)
         {
-            Debug.Log(Parent.name);
-            IsOn = !IsOn;
-            foreach (GameObject tank in Tanks)
-            {
-                tank.SetActive(!tank.activeSelf);
-            }
+            Prompt.SetActive(false);
         }
+        
+        //if (Input.GetKeyDown(KeyCode.E) && InRange)
+        //{
+        //    Debug.Log(Parent.name);
+        //    IsOn = !IsOn;
+        //    foreach (GameObject tank in Tanks)
+        //    {
+        //        tank.SetActive(!tank.activeSelf);
+        //    }
+        //}
+        
+        //raycast from player
+        //RaycastHit hit;
+        //if (Physics.Raycast(Player.transform.position, Player.transform.forward, out hit, 10))
+        //{
+        //    if (hit.collider.gameObject == gameObject)
+        //    {
+        //        Prompt.SetActive(true);
+        //        //if player presses E
+        //        if (Input.GetKeyDown(KeyCode.E))
+        //        {
+        //            //toggle the lever
+        //            IsOn = !IsOn;
+        //            //toggle the tanks
+        //            foreach (GameObject tank in Tanks)
+        //            {
+        //                tank.SetActive(!tank.activeSelf);
+        //            }
+        //        }
+        //    }
+        //    else
+        //    {
+        //        Prompt.SetActive(false);
+        //    }
+        //}
+
+
         if (IsOn)
         {
             Parent.transform.rotation = Quaternion.Euler(0, -90, 180);
@@ -50,13 +79,34 @@ public class LeverScript : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider col)
+    //private void OnTriggerEnter(Collider col)
+    //{
+    //    InRange = true;
+    //}
+
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    InRange = false;
+    //}
+
+    public void InSight()
     {
-        InRange = true;
+        Prompt.SetActive(true);
+        //if player presses E
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            //toggle the lever
+            IsOn = !IsOn;
+            //toggle the tanks
+            foreach (GameObject tank in Tanks)
+            {
+                tank.SetActive(!tank.activeSelf);
+            }
+        }
     }
 
-    private void OnTriggerExit(Collider other)
+    public void NotInSight()
     {
-        InRange = false;
+        Prompt.SetActive(false);
     }
 }

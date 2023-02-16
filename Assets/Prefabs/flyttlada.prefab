@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 712661916850185932}
   - component: {fileID: 4489026328888273257}
   - component: {fileID: 1848955110161522083}
+  - component: {fileID: 709816398999966115}
   m_Layer: 0
   m_Name: flyttlada
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &709816398999966115
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191458579637451894}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4068373912626513877, guid: e40e9b62be30c5d49a857bb36fd4ebb1, type: 3}

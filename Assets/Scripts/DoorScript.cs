@@ -13,6 +13,8 @@ public class DoorScript : MonoBehaviour
     bool Opened = false;
 
     public bool Animation2;
+
+    public float Distance = 2.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,9 +26,8 @@ public class DoorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(Player.transform.position, transform.position) < 2.5 && !Opened)
+        if (Vector3.Distance(Player.transform.position, transform.position) < Distance && !Opened)
         {
-            Debug.Log("close");
             Canvas.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {

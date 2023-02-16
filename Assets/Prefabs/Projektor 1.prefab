@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3089085257815734348}
   - component: {fileID: 2121610187991136233}
   - component: {fileID: 4221436838711083811}
+  - component: {fileID: 3606167035920586730}
   m_Layer: 0
   m_Name: Projektor 1
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3606167035920586730
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2419965721182266102}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4162253513501663206, guid: 550614052b9f21a498b9e4bd148f86fd, type: 3}
