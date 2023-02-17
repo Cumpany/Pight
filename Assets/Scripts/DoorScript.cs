@@ -14,6 +14,9 @@ public class DoorScript : MonoBehaviour
 
     public bool Animation2;
 
+    public AudioClip Creak;
+    AudioSource audioSource;
+
     public float Distance = 2.5f;
     // Start is called before the first frame update
     void Start()
@@ -21,6 +24,7 @@ public class DoorScript : MonoBehaviour
         Player = GameObject.Find("Player");
         anim = GetComponent<Animator>();
         Canvas.SetActive(false);
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -33,6 +37,7 @@ public class DoorScript : MonoBehaviour
             {
                 Canvas.SetActive(false);
                 Opened = true;
+                audioSource.PlayOneShot(Creak);
 
                 if (Animation2)
                 {
@@ -47,6 +52,6 @@ public class DoorScript : MonoBehaviour
         else
         {
             Canvas.SetActive(false);
-        }      
+        }
     }
 }

@@ -6,6 +6,10 @@ public class GateScript : MonoBehaviour
 {
     GameObject Player;
     Animator anim;
+
+    public AudioClip OpenSound;
+
+    bool Opened;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +22,12 @@ public class GateScript : MonoBehaviour
     {
         if (Vector3.Distance(Player.transform.position, transform.position) < 9)
         {
+            if (!Opened)
+            {
+                GetComponent<AudioSource>().PlayOneShot(OpenSound);  
+            }
             anim.SetBool("Open", true);
+            Opened = true;
         }
     }
 }

@@ -13,12 +13,17 @@ public class Pickup : MonoBehaviour
     bool PickedUp = false;
 
     public GameObject Locker;
+
+    public AudioClip PickUpSound;
+
+    GameObject Parent;
     // Start is called before the first frame update
     void Start()
     {
         Player = GameObject.Find("Player");
         Tag = gameObject.tag;
         Prompt.SetActive(false);
+        Parent = gameObject.transform.parent.gameObject;
     }
 
     // Update is called once per frame
@@ -31,6 +36,7 @@ public class Pickup : MonoBehaviour
             {
                 if (Tag == "Key")
                 {
+                    Parent.GetComponent<AudioSource>().PlayOneShot(PickUpSound);
                     Prompt.SetActive(false);
                     Player.GetComponent<PlayerController>().HasKey = true;
                     Destroy(gameObject);

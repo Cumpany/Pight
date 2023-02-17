@@ -25,6 +25,9 @@ public class PadlockScript : MonoBehaviour
     public int Code3;
     public int Code4;
 
+    public AudioClip Switch;
+    public AudioClip Unlock;
+
     bool Opened = false;
     // Start is called before the first frame update
     void Start()
@@ -90,6 +93,7 @@ public class PadlockScript : MonoBehaviour
     {
         if (Num1Int == Code1 && Num2Int == Code2 && Num3Int == Code3 && Num4Int == Code4)
         {
+            GetComponent<AudioSource>().PlayOneShot(Unlock);
             Opened = true;
             anim.SetBool("DoorOpen", true);
             Canvas.SetActive(false);

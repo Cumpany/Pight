@@ -21,6 +21,8 @@ public class ElskapPanel : MonoBehaviour
 
     public GameObject Skap;
 
+    public AudioClip cut;
+
     GameObject Player;
     // Start is called before the first frame update
     void Start()
@@ -56,6 +58,7 @@ public class ElskapPanel : MonoBehaviour
     {
         if (Blue)
         {
+            Skap.GetComponent<AudioSource>().PlayOneShot(cut);
             BlueHel.SetActive(false);
             BlueKlippt.SetActive(true);
         }
@@ -69,6 +72,7 @@ public class ElskapPanel : MonoBehaviour
     {
         if (Green)
         {
+            Skap.GetComponent<AudioSource>().PlayOneShot(cut);
             GreenHel.SetActive(false);
             GreenKlippt.SetActive(true); 
         }
@@ -82,6 +86,7 @@ public class ElskapPanel : MonoBehaviour
     {
         if (Yellow) 
         {
+            Skap.GetComponent<AudioSource>().PlayOneShot(cut);
             YellowHel.SetActive(false);
             YellowKlippt.SetActive(true);
         }
@@ -95,6 +100,7 @@ public class ElskapPanel : MonoBehaviour
     {
         if (Red)
         {
+            Skap.GetComponent<AudioSource>().PlayOneShot(cut);
             RedHel.SetActive(false);
             RedKlippt.SetActive(true);
         }

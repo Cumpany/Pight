@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]public bool HasKey = false;
-    [SerializeField]public bool HasUvFlashlight = false;
+    [SerializeField] public bool HasKey = false;
+    [SerializeField] public bool HasUvFlashlight = false;
 
     public float Speed = 1f;
     public float JumpForce = 5f;
@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     float mouseY;
 
     public bool canMove = true;
+
+    public List<AudioClip> AudioClips = new List<AudioClip>();
     void FixedUpdate()
     {
         // normal movement
@@ -61,6 +63,27 @@ public class PlayerController : MonoBehaviour
         }
         cameraRotation = Mathf.Clamp(cameraRotation, -90, 90);
         Camera.main.transform.localEulerAngles = new Vector3(cameraRotation, 0, 0);
+
+        //if player is moving 
+        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        {
+            //if player is not already playing the walking sound
+            if (!GetComponent<AudioSource>().isPlaying)
+            {
+                //play random walking sound
+                GetComponent<AudioSource>().clip = AudioClips[Random.Range(0, AudioClips.Count)];
+                GetComponent<AudioSource>().Play();
+            }
+        }
+        else
+        {
+            //if player is playing the walking sound
+            if (GetComponent<AudioSource>().isPlaying)
+            {
+                //stop the walking sound
+                GetComponent<AudioSource>().Stop();
+            }
+        }
     }
     void Start()
     {

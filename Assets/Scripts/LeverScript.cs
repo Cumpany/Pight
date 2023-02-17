@@ -16,6 +16,8 @@ public class LeverScript : MonoBehaviour
 
     BoxCollider BoxCollider;
 
+    public AudioClip LeverSound;
+
     bool InRange = false;
     // Start is called before the first frame update
     void Start()
@@ -95,6 +97,7 @@ public class LeverScript : MonoBehaviour
         //if player presses E
         if (Input.GetKeyDown(KeyCode.E))
         {
+            GetComponent<AudioSource>().PlayOneShot(LeverSound);
             //toggle the lever
             IsOn = !IsOn;
             //toggle the tanks

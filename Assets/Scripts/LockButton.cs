@@ -7,6 +7,8 @@ public class LockButton : MonoBehaviour
 {
     [SerializeField]
     public TMP_Text text;
+
+    public GameObject Door;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,7 @@ public class LockButton : MonoBehaviour
 
     public void ClickPlus()
     {
+        Door.GetComponent<AudioSource>().PlayOneShot(Door.GetComponent<PadlockScript>().Switch);
         if (int.TryParse(text.text, out int num))
         {
             num++;
@@ -34,6 +37,7 @@ public class LockButton : MonoBehaviour
 
     public void ClickMinus()
     {
+        Door.GetComponent<AudioSource>().PlayOneShot(Door.GetComponent<PadlockScript>().Switch);
         if (int.TryParse(text.text, out int num))
         {
             num--;

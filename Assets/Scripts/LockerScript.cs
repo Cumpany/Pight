@@ -14,6 +14,8 @@ public class LockerScript : MonoBehaviour
     [SerializeField]
     public bool Opened = false;
 
+    public AudioClip rycka;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +40,10 @@ public class LockerScript : MonoBehaviour
 
                 if (!Player.GetComponent<PlayerController>().HasKey)
                 {
+                    if (!GetComponent<AudioSource>().isPlaying)
+                    {
+                        GetComponent<AudioSource>().PlayOneShot(rycka);
+                    }
                     //show fail prompt for 2 seconds
                     FailPrompt.SetActive(true);
                     StartCoroutine(FailPromptTimer());
