@@ -15,6 +15,7 @@ public class LockerScript : MonoBehaviour
     public bool Opened = false;
 
     public AudioClip rycka;
+    public AudioClip open;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,7 @@ public class LockerScript : MonoBehaviour
             {
                 if (Player.GetComponent<PlayerController>().HasKey)
                 {
+                    GetComponent<AudioSource>().PlayOneShot(open);
                     Opened = true;
                     Prompt.SetActive(false);
                     anim.SetBool("LockerOpen", true);
