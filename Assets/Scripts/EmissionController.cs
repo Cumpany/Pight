@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class EmissionController : MonoBehaviour
 {
-    public GameObject Light;
+    public GameObject Light1;
+    public GameObject Light2;
     public GameObject Bulb;
-    public GameObject DecoyBulb;
-    public bool isOn = false;
+    //public bool isOn = false;
+    public bool Light1On = false;
+    public bool Light2On = false;
 
     public GameObject Tank1;
     public GameObject Tank2;
@@ -29,18 +31,33 @@ public class EmissionController : MonoBehaviour
             anim.SetBool("StartFlash", true);
         }
 
-
-        if (isOn)
+        if (Light1On)
         {
-            Light.SetActive(true);
-            Bulb.SetActive(true);
-            DecoyBulb.SetActive(false);
+            Light1.SetActive(true);
         }
         else
         {
-            Light.SetActive(false);
-            Bulb.SetActive(false);
-            DecoyBulb.SetActive(true);
+            Light1.SetActive(false);
         }
+        if (Light2On)
+        {
+            Light2.SetActive(true);
+        }
+        else
+        {
+            Light2.SetActive(false);
+        }
+        //if (isOn)
+        //{
+        //    Light.SetActive(true);
+        //    Bulb.SetActive(true);
+        //    DecoyBulb.SetActive(false);
+        //}
+        //else
+        //{
+        //    Light.SetActive(false);
+        //    Bulb.SetActive(false);
+        //    DecoyBulb.SetActive(true);
+        //}
     }
 }

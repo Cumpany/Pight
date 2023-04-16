@@ -19,8 +19,19 @@ public class LeverRaycast : MonoBehaviour
         {
             if (hit.collider.gameObject.tag == "Lever")
             {
-                Debug.Log("Hit Lever");
                 hit.collider.gameObject.GetComponent<LeverScript>().InSight();
+            }
+
+            
+            if (hit.collider.gameObject.tag == "Locker")
+            {
+                hit.collider.gameObject.GetComponentInParent<LockerScript>().InSight();
+            }
+
+            if (hit.collider.gameObject.tag == "Paper")
+            {
+                Debug.Log("papre");
+                hit.collider.gameObject.GetComponentInParent<PaperScript>().InSight();
             }
         }
     }

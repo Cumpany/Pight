@@ -8,6 +8,9 @@ TagManager:
   - UV
   - Key
   - UvFlashlight
+  - Lever
+  - Locker
+  - Paper
   layers:
   - Default
   - TransparentFX
